@@ -16,4 +16,5 @@ public abstract class Variabler {
     public double damage, health, speed, swiftnes = 0/*20%chans till dodge*/, criticalHit = 0/*10% chans till Critical hit*/;
     public int playerStrength, playerVitality;
     public int svårighetsgrad, attributPoäng;
+    public int test2;
 }
