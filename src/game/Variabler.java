@@ -17,4 +17,6 @@ public abstract class Variabler {
     public int playerStrength, playerVitality;
     public int svårighetsgrad, attributPoäng;
     public int test;
+    public int test2;
+    
 }
