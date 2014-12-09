@@ -1,19 +1,53 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package game;
 
 import java.util.Scanner;
 
-
-
 /**
  *
- * @author oscarwolter
+ * @author erikkarlsson
  */
-public class characterCreation extends Variabler {
-    public svårighetsgrad(){
+public class Main {
+    
+    static Scanner scanner = new Scanner(System.in);
+    
+    static int strength, vitality, agility, intellegence;
+    
+    static int svårighetsgrad, attributPoäng;
+    
+    static String mob1, mob2, mob3, mob4, mob5, mob6, mob7, mob8, mob9, mob10;
+    
+    static int mob1Strength, mob2Strength, mob3Strength, mob4Strength, mob5Strength, mob6Strength, mob7Strength, mob8Strength, mob9Strength, mob10Strength;
+    
+    static String mobType [] = new String[10];
+    
+    public static void main(String[] args) {
+        
+        System.out.println("Knugen av Grottan\n");
+        
+        System.out.print("1: Starta eller 2: info?\n\nVal: ");
+        int val = scanner.nextInt();
+        
+        if(val == 2){
+            System.out.println("");
+            info();
+        }
+        else{
+            System.out.println("");
+            svårighetsgrad();
+        }
+        spelet();
+    }
+    
+    public static void info(){
+        
+    }
+    
+    public static void svårighetsgrad(){
         boolean fortsätt = true;
         
         while(fortsätt){
@@ -23,7 +57,7 @@ public class characterCreation extends Variabler {
             System.out.println("3 : Svår\n");
         
             System.out.print("Val: ");
-            svårighetsgrad = Scanner.nextInt();
+            svårighetsgrad = scanner.nextInt();
             System.out.println("");
             if(svårighetsgrad != 1 && svårighetsgrad != 2 && svårighetsgrad != 3){
                 System.out.println("Det är inget alternativ\n\nVälj igen:\n");
@@ -35,7 +69,8 @@ public class characterCreation extends Variabler {
         
         attributer();
     }
-    public attributer(){
+    
+    public static void attributer(){
         boolean fortsätt = true;
         boolean alltUtdelat = false;
         
@@ -54,12 +89,14 @@ public class characterCreation extends Variabler {
                         + " poäng som du får sätta ut på antingen: intellegence, \nstrength, agility eller"
                         + " vitality utöver dina 5 basic points.\n");
                 
+                
+                
                 while(fortsätt){
                     System.out.print("Intellegence: +");
-                    Variabler.intellegence = scanner.nextInt();
+                    intellegence = scanner.nextInt();
                     System.out.println("");
                     
-                    if(Variabler.intellegence > Variabler.attributPoäng){
+                    if(intellegence > attributPoäng){
                         System.out.println("Du har inte så många poäng att spendera på intellegence\n");
                     }
                     else if(intellegence < 0){
@@ -128,8 +165,18 @@ public class characterCreation extends Variabler {
                         fortsätt = false;
                     }
                 }
+                
                 fortsätt = true;
-                attributPoäng = 40;
+                attributPoäng = 60;
+                
+                
+                
+                
+                
+                
+                
+                
+                
             }
             else if(svårighetsgrad == 2){
                 attributPoäng = 30;
@@ -213,8 +260,9 @@ public class characterCreation extends Variabler {
                     }
                 }
                 fortsätt = true;
-                attributPoäng = 30;
+                attributPoäng = 50;
             }
+            
             else{
                 attributPoäng = 20;
                 
@@ -297,7 +345,7 @@ public class characterCreation extends Variabler {
                     }
                 }
                 fortsätt = true;
-                attributPoäng = 20;
+                attributPoäng = 40;
             }
             if((intellegence + strength + agility + vitality) != attributPoäng){
                     System.out.println("Du spenderade inte alla dina poäng. Så du får välja om igen\n");
@@ -320,6 +368,7 @@ public class characterCreation extends Variabler {
             }
         }
     }
+    
     public static void mobVal(){
         System.out.println("Välj vilka monster du vill möta i grottan. \n\nOch kom ihåg att du kan lägga in ett"
                 + " monster mer än 1 gång och då ökar du chansen att möta den.\n\nMobtyperna är: varulv,"
