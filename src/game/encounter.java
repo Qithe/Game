@@ -8,8 +8,6 @@ package game;
  *
  * @author oscarwolter
  */
-public class Modules {
-    public static void spelet(){
-        System.out.println("yoooooooooooooooooooooooooooo");
-    }
+public class encounter {
+    
 }
