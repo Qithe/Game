@@ -439,4 +439,96 @@ public class Main {
         System.out.println("Nu ska du gå in i grottan.\n");
         mobVal();
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public static void AttackModul_start(){
+            
+        static int playerSpeed = 0, mobSpeed = 0, mobHp = 0,  playerHp = 0, playerDmg = 0,mobDmg = 0;
+        
+        System.out.println("Figth Starts!!");
+        System.out.println("Choose a option!");
+        
+    }
+    public static void AttackModul_dittVal(){
+        System.out.println("Enter 1 for attack\nEnter 2 for fortify");
+        int val = scanner.nextInt();
+        boolean sant = false;
+        while(!sant){
+        
+            if ( val == 1){
+                sant = true;
+                valAttack();
+            }
+            else if(val == 2){
+                sant = true;
+                valFortify();
+            }
+            else{
+                sant = false;
+            }
+        }
+    }
+    public static void AttackModul_valAttack(){
+        if(playerSpeed > mobSpeed){
+            mobHp = mobHp - playerDmg;
+            if(mobHp>0){
+                playerHp = playerHp - mobDmg;
+             } 
+            else {
+          }
+
+        } else {
+            playerHp = playerHp - mobDmg;
+            if(playerHp>0){
+                mobHp = mobHp - playerDmg;
+            } else {
+            }
+        }
+    }
+    
+    public static void AttackModul_valFortify(){
+        
+    }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
 }
