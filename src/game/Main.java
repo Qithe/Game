@@ -12,6 +12,41 @@ import java.util.Scanner;
  * @author erikkarlsson & Qithe
  */
 public class Main {
+
+    static int playerArmorFortyStart = 2, playerArmorStart = 4, PlayerArmorTotal = playerArmorStart + playerArmorFortyStart;
+    static int playerArmorFortyCur = 2, playerArmorCur = 4, playerArmorTotalCur = playerArmorFortyCur + playerArmorCur;
+    static int playerSpeedStart = 10, mobSpeedStart = 12, mobHpStart = 24,  playerHpStart = 100, playerDmgStart = 3,mobDmgStart = 12;
+    static int playerSpeedCur = 10, mobSpeedCur = 12, mobHpCur = 24,  playerHpCur = playerHpStart, playerDmgCur = 3,mobDmgCur = mobDmgStart;
+    static int score;
+    
+    /*
+    static int playerLevel=0, bowSkill=0, XBowSkill=0, stoneSkill=0, slingStoneSkill, throwKnifeSkill, throwAxeSkill, throwPotionSkill;
+    static int swordSkill, axeSkill, maceSkill;
+    static int playerArmorFortyStart = 2, playerArmorStart = 4, PlayerArmorTotal = playerArmorStart + playerArmorFortyStart;
+    static int playerArmorFortyCur = 2, playerArmorCur = 4, playerArmorTotalCur = playerArmorFortyCur + playerArmorCur;
+    static Scanner scan = new Scanner(System.in);
+    static int playerSpeedStart = 10, mobSpeedStart = 12, mobHpStart = 10,  playerHpStart = 20, playerDmgStart = 4,mobDmgStart = 2;
+    static int playerSpeedCur = 10, mobSpeedCur = 12, mobHpCur = 10,  playerHpCur = 20, playerDmgCur = 4,mobDmgCur = 2;
+    static int score = 10;
+    
+    static String bowName = "Bow"; static int bowDmg = playerLevel*2 + bowSkill;
+    static String XBowName = "Crossbow" ; static int XBowDmg = playerLevel* 3 + XBowSkill;
+    static String stoneName = "Stone"; static int stoneDmg = playerLevel* 1 + stoneSkill;
+    static String slingStoneName="Sling and Stone"; static int slingStoneDmg = playerLevel * 2 + slingStoneSkill;
+    static String throwKnifeName= "Throwing Knife"; static int throwKifeDmg = playerLevel * 2 + throwKnifeSkill;
+    static String throwAxeName="Tomahawk"; static int throwingAxeDmg = playerLevel * 2 + throwAxeSkill;
+    static String throwPotionName="Throwing Potion Bottle"; static int throwPotionDmg = playerLevel *  + throwPotionSkill;
+    
+    static String Sword1hName="Sword"; static int Sword1hDmg = playerLevel * + swordSkill;
+    static String Axe1hName="War axe"; static int Axe1hDmg = playerLevel * + axeSkill;
+    static String Mace1hName="Mace"; static int Mace1hDmg = playerLevel * + maceSkill;
+    static String Sword2hName="Great Sword"; static int Sword2hDmg = playerLevel * + swordSkill;
+    static String Axe2hName="Dubble Headed Axe"; static int Axe2hDmg = playerLevel * + axeSkill;
+    static String Mace2hName="War Hammer"; static int Mace2hDmg = playerLevel * + maceSkill;
+    
+    
+    static String Name=""; static int Dmg = playerLevel * + skill;
+    */
     
     static Scanner scanner = new Scanner(System.in);
     
@@ -457,78 +492,264 @@ public class Main {
     
     
     
-    public static void AttackModul_start(){
-            
-        static int playerSpeed = 0, mobSpeed = 0, mobHp = 0,  playerHp = 0, playerDmg = 0,mobDmg = 0;
-        
-        System.out.println("Figth Starts!!");
-        System.out.println("Choose a option!");
-        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public static void attackModule_Start(){
+        System.out.println("Striden Startar!\nEn vild "+mobType [1]+" står framför dig!\n\n");
+        attackModule_Menu_Action();
+    }   
+    
+    public static void attackModule_Stats(){
+        System.out.println("\n\n\n ////////|||\\\\\\\\\\\\\\\\");
+        System.out.println(" |||STATS:\n\n |||Din hp: "+playerHpCur+"/"+playerHpStart+"\n |||"+mobType [1]+" hp: "+mobHpCur+"/"+mobHpStart);
+        System.out.println(" \\\\\\\\\\\\\\\\|||//////// \n\n\n");
+        attackModule_Menu_Action();
     }
-    public static void AttackModul_dittVal(){
-        System.out.println("Enter 1 for attack\nEnter 2 for fortify");
-        int val = scanner.nextInt();
-        boolean sant = false;
-        while(!sant){
-        
-            if ( val == 1){
-                sant = true;
-                valAttack();
+    public static void attackModule_Menu_Action(){
+        System.out.print("Vad är ditt val?\n");
+            System.out.println("1.      Attackera\n2.      Försvarställning\n3.      Drycker\n4.      Föremål\n5.      Statestik\n");
+            int attackModule_Menu_Action_Choice = scanner.nextInt();
+            switch (attackModule_Menu_Action_Choice){
+                case 1:attackModule_Attack();
+                    break;
+                case 2:attackModule_Fortify();
+                    break;
+                case 3: attackModule_Menu_PotionsMenu();
+                    break;
+                case 4: attackModule_Menu_ItemsMenu();
+                    break;
+                case 5: attackModule_Stats();
+                    break;
+                default: System.out.println("Redo\n\n");
+                    attackModule_Menu_Action();
+                    break; 
             }
-            else if(val == 2){
-                sant = true;
-                valFortify();
-            }
-            else{
-                sant = false;
-            }
+    }
+    public static void attackModule_Attack(){
+        if(playerSpeedCur > mobSpeedCur){
+            attackModule_Attack_PlayerFirst();
+        } else if (playerSpeedCur < mobSpeedCur) {
+            attackModule_Attack_MobFirst();
         }
     }
-    public static void AttackModul_valAttack(){
-        if(playerSpeed > mobSpeed){
-            mobHp = mobHp - playerDmg;
-            if(mobHp>0){
-                playerHp = playerHp - mobDmg;
-             } 
-            else {
-          }
-
-        } else {
-            playerHp = playerHp - mobDmg;
-            if(playerHp>0){
-                mobHp = mobHp - playerDmg;
-            } else {
+    public static void attackModule_Attack_PlayerFirst(){
+        mobHpCur = mobHpCur - playerDmgCur;
+        System.out.println("Du svingar dit svärd mot "+mobType [1]+" och gör "+playerDmgCur+" Skada\n\n");
+            if(mobHpCur <= 0){
+                attackModule_Victory();
+            } 
+            else if (mobHpCur > 0) {
+                playerHpCur = playerHpCur - mobDmgCur;
+                if(playerHpCur>0){
+                    System.out.println(mobType [1]+" Attakerar dig och gör "+mobDmgCur+" skada på dig\n\n");
+                    attackModule_Menu_Action();
+                } 
+                else if (playerHpCur <= 0){
+                    System.out.println(mobType [1]+" Attakerar dig och gör "+mobDmgCur+" skada på dig\n\n");
+                    attackModule_GameOver();
+                }
+            }
+    }
+    public static void attackModule_Attack_MobFirst(){
+        playerHpCur = playerHpCur - mobDmgCur;
+        System.out.println(mobType [1]+" Attakerar dig och gör "+mobDmgCur+" skada på dig\n\n");
+        if(playerHpCur<=0){
+        attackModule_GameOver();  
+        } 
+        else if (playerHpCur>0){
+            mobHpCur = mobHpCur - playerDmgCur;
+            if(mobHpCur <= 0){
+                System.out.println("Du svingar dit svärd mot "+mobType [1]+" och gör "+playerDmgCur+" Skada\n\n");
+                attackModule_Victory();
+            }
+            else if(mobHpCur > 0){
+                System.out.println("Du svingar dit svärd mot "+mobType [1]+" och gör "+playerDmgCur+" Skada\n\n");
+                attackModule_Menu_Action();
             }
         }
     }
     
-    public static void AttackModul_valFortify(){
+    public static void attackModule_Fortify(){
+        System.out.println("Du reser din sköld som reducerar monstrenas attack och ger dig tid att återhämta dig\n\n");
+        playerHpCur += (playerHpStart/10);
+        if (playerHpCur >= playerHpStart){
+            playerHpCur = playerHpStart;
+        }
+        System.out.println("Din hälsa ökade med: "+playerHpStart/10+"\n\n");
+        
+        playerHpCur = playerHpCur - mobDmgCur;
+        System.out.println(mobType [1]+"Attakerar dig och gör "+mobDmgCur/2+" skada på dig\n\n");
+        
+        attackModule_Menu_Action();
         
     }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+    public static void attackModule_Menu_PotionsMenu(){
+        System.out.println("There is nothing here but us chickens\n\n");
+        attackModule_Menu_Action();
+    }
+    public static void attackModule_Menu_ItemsMenu(){
+        System.out.println("There is nothing here but us chickens\n\n");
+        attackModule_Menu_Action();
+    }
+    public static void attackModule_Victory(){
+        System.out.println("Grattis, du vann!! Men du vet inte vad som väntar runt krönet\n\n");
+        score = score + 10;
+    }
+    
+    public static void attackModule_GameOver(){
+        System.out.println("Du ligger på marken, det svartnar för ögonen. Du tänker: 'Jag förlorade?'\nDin poäng var: "+score+"\n\n");
     }
 }
