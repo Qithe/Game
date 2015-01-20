@@ -8,9 +8,9 @@ package game;
  *
  * @author oscarwolter
  */
-public abstract class denalsmäktigekarl extends Variabler {
+public abstract class DenAlsmäktigeKarl extends Variabler {
     
-    public denalsmäktigekarl() {
+    public DenAlsmäktigeKarl() {
         strength = 6;
         intellegence = 10;
         agility = 1;
