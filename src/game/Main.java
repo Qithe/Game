@@ -1,16 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package game;
-
 import java.util.Scanner;
 
-/**
- *
- * @author erikkarlsson & Qithe
- */
 public class Main {
 
     static int playerArmorFortyStart = 2, playerArmorStart = 4, PlayerArmorTotal = playerArmorStart + playerArmorFortyStart;
