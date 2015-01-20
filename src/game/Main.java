@@ -647,82 +647,82 @@ public class Main {
     
     
     
-    public static void AttackModule_Start(){
+    public static void attackModule_Start(){
         System.out.println("Striden Startar!\nEn vild "+mobType [1]+" står framför dig!\n\n");
-        AttackModule_Menu_Action();
+        attackModule_Menu_Action();
     }   
     
-    public static void AttackModule_Stats(){
+    public static void attackModule_Stats(){
         System.out.println("\n\n\n ////////|||\\\\\\\\\\\\\\\\");
         System.out.println(" |||STATS:\n\n |||Din hp: "+playerHpCur+"/"+playerHpStart+"\n |||"+mobType [1]+" hp: "+mobHpCur+"/"+mobHpStart);
         System.out.println(" \\\\\\\\\\\\\\\\|||//////// \n\n\n");
-        AttackModule_Menu_Action();
+        attackModule_Menu_Action();
     }
-    public static void AttackModule_Menu_Action(){
+    public static void attackModule_Menu_Action(){
         System.out.print("Vad är ditt val?\n");
             System.out.println("1.      Attackera\n2.      Försvarställning\n3.      Drycker\n4.      Föremål\n5.      Statestik\n");
-            int AttackModule_Menu_Action_Choice = scanner.nextInt();
-            switch (AttackModule_Menu_Action_Choice){
-                case 1:AttackModule_Attack();
+            int attackModule_Menu_Action_Choice = scanner.nextInt();
+            switch (attackModule_Menu_Action_Choice){
+                case 1:attackModule_Attack();
                     break;
-                case 2:AttackModule_Fortify();
+                case 2:attackModule_Fortify();
                     break;
-                case 3: AttackModule_Menu_PotionsMenu();
+                case 3: attackModule_Menu_PotionsMenu();
                     break;
-                case 4: AttackModule_Menu_ItemsMenu();
+                case 4: attackModule_Menu_ItemsMenu();
                     break;
-                case 5: AttackModule_Stats();
+                case 5: attackModule_Stats();
                     break;
                 default: System.out.println("Redo\n\n");
-                    AttackModule_Menu_Action();
+                    attackModule_Menu_Action();
                     break; 
             }
     }
-    public static void AttackModule_Attack(){
+    public static void attackModule_Attack(){
         if(playerSpeedCur > mobSpeedCur){
-            AttackModule_Attack_PlayerFirst();
+            attackModule_Attack_PlayerFirst();
         } else if (playerSpeedCur < mobSpeedCur) {
-            AttackModule_Attack_MobFirst();
+            attackModule_Attack_MobFirst();
         }
     }
-    public static void AttackModule_Attack_PlayerFirst(){
+    public static void attackModule_Attack_PlayerFirst(){
         mobHpCur = mobHpCur - playerDmgCur;
         System.out.println("Du svingar dit svärd mot "+mobType [1]+" och gör "+playerDmgCur+" Skada\n\n");
             if(mobHpCur <= 0){
-                AttackModule_Victory();
+                attackModule_Victory();
             } 
             else if (mobHpCur > 0) {
                 playerHpCur = playerHpCur - mobDmgCur;
                 if(playerHpCur>0){
                     System.out.println(mobType [1]+" Attakerar dig och gör "+mobDmgCur+" skada på dig\n\n");
-                    AttackModule_Menu_Action();
+                    attackModule_Menu_Action();
                 } 
                 else if (playerHpCur <= 0){
                     System.out.println(mobType [1]+" Attakerar dig och gör "+mobDmgCur+" skada på dig\n\n");
-                    AttackModule_GameOver();
+                    attackModule_GameOver();
                 }
             }
     }
-    public static void AttackModule_Attack_MobFirst(){
+    public static void attackModule_Attack_MobFirst(){
         playerHpCur = playerHpCur - mobDmgCur;
         System.out.println(mobType [1]+" Attakerar dig och gör "+mobDmgCur+" skada på dig\n\n");
         if(playerHpCur<=0){
-        AttackModule_GameOver();  
+        attackModule_GameOver();  
         } 
         else if (playerHpCur>0){
             mobHpCur = mobHpCur - playerDmgCur;
             if(mobHpCur <= 0){
                 System.out.println("Du svingar dit svärd mot "+mobType [1]+" och gör "+playerDmgCur+" Skada\n\n");
-                AttackModule_Victory();
+                attackModule_Victory();
             }
             else if(mobHpCur > 0){
                 System.out.println("Du svingar dit svärd mot "+mobType [1]+" och gör "+playerDmgCur+" Skada\n\n");
-                AttackModule_Menu_Action();
+                attackModule_Menu_Action();
             }
         }
     }
     
-    public static void AttackModule_Fortify(){
+    public static void attackModule_Fortify(){
         System.out.println("Du reser din sköld som reducerar monstrenas attack och ger dig tid att återhämta dig\n\n");
         playerHpCur += (playerHpStart/10);
         if (playerHpCur >= playerHpStart){
@@ -733,23 +733,23 @@ public class Main {
         playerHpCur = playerHpCur - mobDmgCur;
         System.out.println(mobType [1]+"Attakerar dig och gör "+mobDmgCur/2+" skada på dig\n\n");
         
-        AttackModule_Menu_Action();
+        attackModule_Menu_Action();
         
     }
-    public static void AttackModule_Menu_PotionsMenu(){
+    public static void attackModule_Menu_PotionsMenu(){
         System.out.println("There is nothing here but us chickens\n\n");
-        AttackModule_Menu_Action();
+        attackModule_Menu_Action();
     }
-    public static void AttackModule_Menu_ItemsMenu(){
+    public static void attackModule_Menu_ItemsMenu(){
         System.out.println("There is nothing here but us chickens\n\n");
-        AttackModule_Menu_Action();
+        attackModule_Menu_Action();
     }
-    public static void AttackModule_Victory(){
+    public static void attackModule_Victory(){
         System.out.println("Grattis, du vann!! Men du vet inte vad som väntar runt krönet\n\n");
         score = score + 10;
     }
     
-    public static void AttackModule_GameOver(){
+    public static void attackModule_GameOver(){
         System.out.println("Du ligger på marken, det svartnar för ögonen. Du tänker: 'Jag förlorade?'\nDin poäng var: "+score+"\n\n");
     }
 }
