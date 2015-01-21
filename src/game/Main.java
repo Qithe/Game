@@ -417,9 +417,9 @@ public class Main {
         System.out.println("");
     }
     
-    public static void mob1(){
+    /*public static void mob1(){
         mob1 = mobType [0];
-        mob1Strength = 3;
+        mob1Strength = 6;
     }
     
     public static void mob2(){
@@ -465,13 +465,82 @@ public class Main {
     public static void mob10(){
         mob10 = mobType [9];
         mob10Strength = 3;
+    }*/
+    
+    public static void varulv(){
+        
+        varulvStrength = 4 * svårighetsgrad;
+        varulvVitality = 2 * svårighetsgrad;
+        varulvAgility = 3 * svårighetsgrad;
+        varulvIntellegence = 1 * svårighetsgrad;
+        
+        
+    }
+    
+    public static void trollKarl(){
+        
+        trollKarlStrength = 1 * svårighetsgrad;
+        trollKarlVitality = 3 * svårighetsgrad;
+        trollKarlAgility = 2 * svårighetsgrad;
+        trollKarlIntellegence = 4 * svårighetsgrad;
+        
+        
     }
     
     public static void spelet(){
         System.out.println("Nu ska du gå in i grottan.\n");
-        mobVal();
+        //mobVal(); ska in senare
+        mobSlumpning();
     }
     
+    public static void mobSlumpning(){
+        
+        int monsterNummer = random.nextInt(8);
+        
+        for(int i = 0 ; i < 10 ; i++){
+            if(monsterNummer == 0 || monsterNummer == 1 || monsterNummer == 2 || monsterNummer == 3){
+                mobType [i] = "varulv";
+            }
+            else{
+                mobType [i] = "trollKarl";
+            }
+        }
+    }
+    
+    public static boolean mobEncounter(int mob){
+        boolean klar = false;
+        
+        int i = random.nextInt();
+        
+        if(mobType [i] == "varulv"){
+            mobEncStrength [mob] = varulvStrength;
+            mobEncVitality [mob] = varulvVitality;
+            mobEncAgility [mob] = varulvAgility;
+            mobEncIntellegence [mob] = varulvIntellegence;
+            klar = true;
+        }
+        else if(mobType [i] == "trollKarl"){
+            mobEncStrength [mob] = trollKarlStrength;
+            mobEncVitality [mob] = trollKarlVitality;
+            mobEncAgility [mob] = trollKarlAgility;
+            mobEncIntellegence [mob] = trollKarlIntellegence;
+            klar = true;
+        }
+        else{
+            System.out.println("Det blev problem här du =(\n");
+        }
+        
+        return klar;
+        
+        //att sätta in för att kalla på mobval
+        /*boolean klar = false;
+        
+        while(klar){
+            klar = mobEncounter(1);
+        }*/
+        
+    }
+
     
     
     
