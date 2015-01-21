@@ -46,9 +46,16 @@ public class Main {
     
     static String mob1, mob2, mob3, mob4, mob5, mob6, mob7, mob8, mob9, mob10;
     
-    static int mob1Strength, mob2Strength, mob3Strength, mob4Strength, mob5Strength, mob6Strength, mob7Strength, mob8Strength, mob9Strength, mob10Strength;
+    static int mobEncStrength [] = new int[3], mobEncVitality [] = new int[3], mobEncAgility [] = new int[3], mobEncIntellegence [] = new int[3];
     
     static String mobType [] = new String[10];
+    
+    static int varulvStrength, varulvVitality, varulvAgility, varulvIntellegence, spindelStrength, 
+            spindelVitality, spindelAgility, spindelIntellegence, ryskSoldatStrength, ryskSoldatVitality, 
+            ryskSoldatAgility, ryskSoldatIntellegence, trollKarlStrength, trollKarlVitality, trollKarlAgility, 
+            trollKarlIntellegence;
+    
+    static Random random = new Random();
     
     public static void main(String[] args) {
         
