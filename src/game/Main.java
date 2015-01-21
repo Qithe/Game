@@ -1,5 +1,6 @@
 package game;
 import java.util.Scanner;
+import java.util.Random;
 
 public class Main {
 
@@ -40,13 +41,16 @@ public class Main {
     
     static Scanner scanner = new Scanner(System.in);
     
+    static boolean tomtRum;
+    
     static int strength, vitality, agility, intellegence;
     
     static int svårighetsgrad, attributPoäng;
     
     static String mob1, mob2, mob3, mob4, mob5, mob6, mob7, mob8, mob9, mob10;
     
-    static int mobEncStrength [] = new int[3], mobEncVitality [] = new int[3], mobEncAgility [] = new int[3], mobEncIntellegence [] = new int[3];
+    static int mobEncStrength [] = new int[3], mobEncVitality [] = new int[3], mobEncAgility [] = new int[3], 
+            mobEncIntellegence [] = new int[3], rum [] = new int[1000];
     
     static String mobType [] = new String[10];
     
@@ -538,180 +542,85 @@ public class Main {
         while(klar){
             klar = mobEncounter(1);
         }*/
-        
     }
-
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public static void grottIngång(){
+        boolean encounter = false;
+        
+        int tal = random.nextInt(4);
+        
+        if(tal == 0 || tal == 1 || tal == 2){
+            System.out.println("Det står ett monster i grottkammaren. Han hör dig gå in och vänder sig hastigt mot dig");
+            encounter = true;
+        }
+        else if(tal == 3){
+            System.out.println("Rummet är tomt och du kan vila ut för stunden. Du regenererar " + playerHpStart/10 
+                    + " och du har lite extra tid att leta runt efter föremål");
+            tomtRum = true;
+            encounter = false;
+        }
+        else{
+            
+        }
+        
+        if(encounter){
+            attackModule_Start();
+        }
+        else{
+            kammarVal();
+        }
+    }
+    
+    public static void kammarVal(){
+        boolean fortsätt = false;
+        
+        System.out.print("Du står nu ensam i kammaren och du funderar över om du ska\n\n1 : Gå direkt till"
+                + " nästa rum eller om du ska\n\n2 : Gå och leta runt lite efter föremål\n\nVal: ");
+        int val = scanner.nextInt();
+        
+        while(!fortsätt){
+            if(val == 1){
+                fortsätt = true;
+                movement();
+            }
+            else if(val == 2){
+                fortsätt = true;
+                leta();
+            }
+            else{
+                System.out.println("Det där var inget val du =). Välj igen");
+            }
+        }
+    }
+    
+    public static void movement(){
+        
+        System.out.println("Du går in i nästa rum");
+        rumNr ++;
+        
+        grottIngång();
+    }
+    
+    public static void leta(){
+        String föremål;
+        int hittaFöremål;
+        
+        if(tomtRum){
+            hittaFöremål = random.nextInt(3);
+        }
+        else{
+            hittaFöremål = random.nextInt(2);
+        }
+        
+        if(hittaFöremål == 1 || hittaFöremål == 2){
+            föremål = "en yxa (som inte gör något ännu tyvärr)";
+        }
+        else{
+            föremål = "ingenting";
+        }
+        
+        System.out.println("Du letar runt lite efter föremål och hittar " + föremål);
+    }
     
     public static void attackModule_Start(){
         System.out.println("Striden Startar!\nEn vild "+mobType [1]+" står framför dig!\n\n");
