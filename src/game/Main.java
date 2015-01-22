@@ -4,10 +4,10 @@ import java.util.Random;
 
 public class Main {
 
-    static int playerArmorFortyStart = 2, playerArmorStart = 4, PlayerArmorTotal = playerArmorStart + playerArmorFortyStart;
-    static int playerArmorFortyCur = 2, playerArmorCur = 4, playerArmorTotalCur = playerArmorFortyCur + playerArmorCur;
+    //static int playerArmorFortyStart = 2, playerArmorStart = 4, PlayerArmorTotal = playerArmorStart + playerArmorFortyStart;
+    //static int playerArmorFortyCur = playerArmorFortyStart, playerArmorCur = playerArmorStart, playerArmorTotalCur = playerArmorFortyCur + playerArmorCur;
     static int playerSpeedStart = 10, mobSpeedStart = 12, mobHpStart = 24,  playerHpStart = 100, playerDmgStart = 3,mobDmgStart = 12;
-    static int playerSpeedCur = 10, mobSpeedCur = 12, mobHpCur = 24,  playerHpCur = playerHpStart, playerDmgCur = 3,mobDmgCur = mobDmgStart;
+    static int playerSpeedCur = playerSpeedStart, mobSpeedCur = mobSpeedStart, mobHpCur = mobHpStart,  playerHpCur = playerHpStart, playerDmgCur = 3,mobDmgCur = mobDmgStart;
     static int score;
     
     /*
@@ -45,7 +45,7 @@ public class Main {
     
     static int strength, vitality, agility, intellegence;
     
-    static int svårighetsgrad, attributPoäng;
+    static int svårighetsgrad, attributPoäng, rumNr;
     
     static String mob1, mob2, mob3, mob4, mob5, mob6, mob7, mob8, mob9, mob10;
     
@@ -495,6 +495,7 @@ public class Main {
         System.out.println("Nu ska du gå in i grottan.\n");
         //mobVal(); ska in senare
         mobSlumpning();
+        grottIngång();
     }
     
     public static void mobSlumpning(){
@@ -620,6 +621,7 @@ public class Main {
         }
         
         System.out.println("Du letar runt lite efter föremål och hittar " + föremål);
+        grottIngång();
     }
     
     public static void attackModule_Start(){
