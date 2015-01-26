@@ -6,7 +6,7 @@ public class Main {
 
     //static int playerArmorFortyStart = 2, playerArmorStart = 4, PlayerArmorTotal = playerArmorStart + playerArmorFortyStart;
     //static int playerArmorFortyCur = playerArmorFortyStart, playerArmorCur = playerArmorStart, playerArmorTotalCur = playerArmorFortyCur + playerArmorCur;
-    static int playerSpeedStart = 10, mobSpeedStart = 12, mobHpStart = 24,  playerHpStart = 100, playerDmgStart = 3,mobDmgStart = 12;
+    static int playerSpeedStart = 10, mobSpeedStart = 12, mobHpStart = 26,  playerHpStart = 100, playerDmgStart = 3,mobDmgStart = 12;
     static int playerSpeedCur = playerSpeedStart, mobSpeedCur = mobSpeedStart, mobHpCur = mobHpStart,  playerHpCur = playerHpStart, playerDmgCur = 3,mobDmgCur = mobDmgStart;
     static int score;
     
@@ -473,9 +473,9 @@ public class Main {
     
     public static void varulv(){
         
-        varulvStrength = 4 * svårighetsgrad;
-        varulvVitality = 2 * svårighetsgrad;
-        varulvAgility = 3 * svårighetsgrad;
+        varulvStrength = 7 * svårighetsgrad;
+        varulvVitality = 20 * svårighetsgrad;
+        varulvAgility = 8 * svårighetsgrad;
         varulvIntellegence = 1 * svårighetsgrad;
         
         
@@ -483,9 +483,9 @@ public class Main {
     
     public static void trollKarl(){
         
-        trollKarlStrength = 1 * svårighetsgrad;
-        trollKarlVitality = 3 * svårighetsgrad;
-        trollKarlAgility = 2 * svårighetsgrad;
+        trollKarlStrength = 5 * svårighetsgrad;
+        trollKarlVitality = 23 * svårighetsgrad;
+        trollKarlAgility = 6 * svårighetsgrad;
         trollKarlIntellegence = 4 * svårighetsgrad;
         
         
@@ -495,14 +495,21 @@ public class Main {
         System.out.println("Nu ska du gå in i grottan.\n");
         //mobVal(); ska in senare
         mobSlumpning();
+        playerSpeedCur = agility * 1;
+        playerHpCur = vitality * 3;
+        playerDmgCur = strength * 1;
+        playerSpeedStart = agility * 1;
+        playerHpStart = vitality * 3;
+        playerDmgStart = strength * 1;
+        varulv();
+        trollKarl();
         grottIngång();
     }
     
     public static void mobSlumpning(){
         
-        int monsterNummer = random.nextInt(8);
-        
         for(int i = 0 ; i < 10 ; i++){
+            int monsterNummer = random.nextInt(8);
             if(monsterNummer == 0 || monsterNummer == 1 || monsterNummer == 2 || monsterNummer == 3){
                 mobType [i] = "varulv";
             }
@@ -515,16 +522,14 @@ public class Main {
     public static boolean mobEncounter(int mob){
         boolean klar = false;
         
-        int i = random.nextInt();
-        
-        if(mobType [i] == "varulv"){
+        if(mobType [mob] == "varulv"){
             mobEncStrength [mob] = varulvStrength;
             mobEncVitality [mob] = varulvVitality;
             mobEncAgility [mob] = varulvAgility;
             mobEncIntellegence [mob] = varulvIntellegence;
             klar = true;
         }
-        else if(mobType [i] == "trollKarl"){
+        else if(mobType [mob] == "trollKarl"){
             mobEncStrength [mob] = trollKarlStrength;
             mobEncVitality [mob] = trollKarlVitality;
             mobEncAgility [mob] = trollKarlAgility;
@@ -535,6 +540,12 @@ public class Main {
             System.out.println("Det blev problem här du =(\n");
         }
         
+        mobHpCur = mobEncVitality [mob];
+        mobDmgCur = mobEncStrength [mob];
+        mobSpeedCur = mobEncAgility [mob];
+        mobHpStart = mobEncVitality [mob];
+        mobDmgStart = mobEncStrength [mob];
+        mobSpeedStart = mobEncAgility [mob];
         return klar;
         
         //att sätta in för att kalla på mobval
@@ -556,7 +567,8 @@ public class Main {
         }
         else if(tal == 3){
             System.out.println("Rummet är tomt och du kan vila ut för stunden. Du regenererar " + playerHpStart/10 
-                    + " och du har lite extra tid att leta runt efter föremål");
+                    + "hp och du har lite extra tid att leta runt efter föremål");
+            playerHpCur += (playerHpStart/10);
             tomtRum = true;
             encounter = false;
         }
@@ -565,6 +577,11 @@ public class Main {
         }
         
         if(encounter){
+            boolean klar = false;
+        
+        while(!klar){
+            klar = mobEncounter(1);
+        }
             attackModule_Start();
         }
         else{
@@ -620,12 +637,15 @@ public class Main {
             föremål = "ingenting";
         }
         
-        System.out.println("Du letar runt lite efter föremål och hittar " + föremål);
+        System.out.println("Du letar runt lite efter föremål och hittar " + föremål + ". Sedan går du vidare till nästa rum\n");
         grottIngång();
     }
     
     public static void attackModule_Start(){
         System.out.println("Striden Startar!\nEn vild "+mobType [1]+" står framför dig!\n\n");
+        if (playerHpCur >= playerHpStart){
+            playerHpCur = playerHpStart;
+        }
         attackModule_Menu_Action();
     }   
     
@@ -724,6 +744,7 @@ public class Main {
     public static void attackModule_Victory(){
         System.out.println("Grattis, du vann!! Men du vet inte vad som väntar runt krönet\n\n");
         score = score + 10;
+        grottIngång();
     }
     
     public static void attackModule_GameOver(){
