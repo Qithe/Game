@@ -580,7 +580,8 @@ public class Main {
             boolean klar = false;
         
         while(!klar){
-            klar = mobEncounter(1);
+            int slumpen = random.nextInt(10);
+            klar = mobEncounter(slumpen);
         }
             attackModule_Start();
         }
